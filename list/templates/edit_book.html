@@ -1,0 +1,17 @@
+
+<h2>Edit Book</h2>
+<form method="post" action="{% url 'edit_book' book.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Book</button>
+</form>
+
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-primary">Update Book</button>
+</form>
+{%endblock%}
